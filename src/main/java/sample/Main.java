@@ -1,11 +1,16 @@
 package sample;
 
-import com.ethlo.time.ITU;
+import com.ethlo.time.DateTime;
+import com.ethlo.time.DateTimeParser;
+import com.ethlo.time.DateTimeTokens;
+import com.ethlo.time.Field;
+import com.ethlo.time.token.ConfigurableDateTimeParser;
 
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Arrays.stream(args).map(ITU::parseLenient).toList());
+        final DateTimeParser yearParser = ConfigurableDateTimeParser.of(DateTimeTokens.digits(Field.YEAR, 4));
+        final DateTime result = yearParser.parse("1999");
+        System.out.println(result.getMostGranularField());
     }
 }
