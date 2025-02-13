@@ -1,4 +1,4 @@
-package sample;
+package com.example.modularproject;
 
 import com.ethlo.time.DateTime;
 import com.ethlo.time.DateTimeParser;
